@@ -1,0 +1,30 @@
+
+import { pgTable,uuid,text,timestamp } from "drizzle-orm/pg-core";
+
+
+
+export const users = pgTable("users",{
+    id: uuid("id").primaryKey().defaultRandom(),
+    name : text("name").notNull(),
+    email : text("email").notNull().unique(), 
+    password : text("password").notNull(),
+    createdAt: timestamp("created_at").defaultNow(),
+    updatedAt: timestamp("updated_at").defaultNow(),
+});
+
+export type User = typeof users.$inferSelect;
+export type newUser = typeof users.$inferInsert;
+
+export const task = pgTable("tasks",{
+  id : uuid("id").primaryKey().defaultRandom(),
+  title: text("tittle").notNull(),
+  discription: text("discription").notNull(),
+  hexColor: text("hex_color").notNull(),
+  uid:uuid("uid").notNull().references(()=> users.id,{onDelete:"cascade"}),
+  dueAt: timestamp("due_at").$defaultFn(()=> new Date(Date.now() + 7 *24 * 60 * 60 * 1000)),
+    createdAt: timestamp("created_at").defaultNow(),
+    updatedAt: timestamp("updated_at").defaultNow(),
+});
+
+export type Task = typeof task.$inferSelect;
+export type NewTask = typeof task.$inferInsert;
