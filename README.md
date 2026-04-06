@@ -1,5 +1,32 @@
 # Offline Task App
 
+<table align="center">
+  <tr>
+    <td align="center">
+      <img src="screenshot/register.jpg" width="200"><br>
+      <sub><b>Register</b></sub>
+    </td>
+    <td align="center">
+      <img src="screenshot/add task.jpg" width="200"><br>
+      <sub><b>Add Task</b></sub>
+    </td>
+   
+  </tr>
+
+  
+  <tr>
+      <td align="center">
+      <img src="screenshot/login.jpg" width="200"><br>
+      <sub><b>Login</b></sub>
+    </td>
+    <td align="center">
+      <img src="screenshot/show_task.jpg" width="200"><br>
+      <sub><b>Show Task</b></sub>
+    </td>
+  </tr>
+</table>
+
+
 A cross-platform task management app built with **Flutter**, following **MVVM architecture** and **Bloc/Cubit state management**, designed for **offline-first usage**. Users can **register and login securely**, with their login state and tasks **persisted locally using SQLite** for offline access. The app allows **adding, editing, and deleting tasks offline**, with the ability to **filter tasks by date** for better organization. It uses **Bloc/Cubit** for scalable and maintainable state management and integrates with a **Node.js backend** built with **TypeScript**, **Express**, and **PostgreSQL** for online synchronization. The backend and database are **containerized using Docker** for easy deployment.
 
 ---
